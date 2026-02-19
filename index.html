@@ -6,9 +6,6 @@
     <title>SwiftCraft SMP</title>
     <link rel="icon" type="image/x-icon" href="https://cdn.discordapp.com/attachments/1454193207192850653/1472994575936389120/image.png?ex=6997e459&is=699692d9&hm=88239b3d71fc93d8bbcc8271db55f3719d019189a61216aa6aab7b028e54a22a&">
     <link rel="stylesheet" href="style.css">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
-    <script src="https://unpkg.com/feather-icons"></script>
     <script>
         tailwind.config = {
             darkMode: 'class',
@@ -67,7 +64,6 @@
     </script>
 </head>
 <body class="bg-dark-900 text-white min-h-screen">
-    <custom-navbar></custom-navbar>
     
     <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
         <div class="absolute inset-0">
@@ -77,7 +73,6 @@
                 <div class="absolute bottom-20 right-10 w-96 h-96 bg-secondary-500/20 rounded-full blur-3xl animate-pulse-slow" style="animation-delay: 2s;"></div>
                 <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary-500/10 rounded-full blur-3xl"></div>
             </div>
-            <!-- Grid Pattern -->
             <div class="absolute inset-0 opacity-10" style="background-image: linear-gradient(rgba(14, 165, 233, 0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(14, 165, 233, 0.3) 1px, transparent 1px); background-size: 50px 50px;"></div>
         </div>
 
@@ -91,8 +86,8 @@
                 SWIFT CRAFT SMP
             </h1>
             <p class="text-xl md:text-2xl text-gray-300 mb-8 max-w-2xl mx-auto">
-                Vanilla+ Minecraft Сервер
-                Текущий сезон - <span class="text-secondary-400 font-semibold">Ranked SMP</span> 
+                Vanilla+ Minecraft Сервер<br>
+                Текущий сезон - <span class="text-secondary-400 font-semibold">Ranked SMP.</span><br> 
                 20 Рангов среди игроков. Чем выше ранг - тем игрок сильнее.
             </p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -113,7 +108,7 @@
                     <span>Игроков: <span id="players" class="text-white font-semibold">Загрузка...</span></span></span>
                 </div>
                 <script>
-                fetch("https://api.mcsrvstat.us/2/play.hypixel.net")
+                fetch("https://api.mcsrvstat.us/2/bkz1.joinserver.xyz:25568")
                   .then(response => response.json())
                   .then(data => {
                       if (data.online) {
