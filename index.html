@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SwiftCraft SMP - Minecraft Server</title>
-    <link rel="icon" type="image/x-icon" href="https://static.photos/minimal/200x200/42">
+    <title>SwiftCraft SMP</title>
+    <link rel="icon" type="image/x-icon" href="https://cdn.discordapp.com/attachments/1454193207192850653/1472994575936389120/image.png?ex=6997e459&is=699692d9&hm=88239b3d71fc93d8bbcc8271db55f3719d019189a61216aa6aab7b028e54a22a&">
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
@@ -69,9 +69,7 @@
 <body class="bg-dark-900 text-white min-h-screen">
     <custom-navbar></custom-navbar>
     
-    <!-- Hero Section -->
     <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
-        <!-- Animated Background -->
         <div class="absolute inset-0">
             <div class="absolute inset-0 bg-gradient-to-br from-dark-900 via-dark-800 to-dark-900"></div>
             <div class="absolute top-0 left-0 w-full h-full">
@@ -93,33 +91,49 @@
                 SWIFT CRAFT SMP
             </h1>
             <p class="text-xl md:text-2xl text-gray-300 mb-8 max-w-2xl mx-auto">
-                Experience the ultimate Minecraft adventure with <span class="text-secondary-400 font-semibold">BLISS SMP</span> — 
-                10 unique gems, infinite possibilities
+                Vanilla+ Minecraft Сервер
+                Текущий сезон - <span class="text-secondary-400 font-semibold">Ranked SMP</span> 
+                20 Рангов среди игроков. Чем выше ранг - тем игрок сильнее.
             </p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
                 <a href="#play" class="group relative px-8 py-4 bg-gradient-to-r from-primary-600 to-primary-500 rounded-xl font-semibold text-lg overflow-hidden transition-all hover:scale-105 hover:shadow-lg hover:shadow-primary-500/25">
                     <span class="relative z-10 flex items-center gap-2">
                         <i data-feather="play" class="w-5 h-5"></i>
-                        Join Server
+                        Присоединиться к серверу
                     </span>
                     <div class="absolute inset-0 bg-gradient-to-r from-secondary-500 to-primary-500 opacity-0 group-hover:opacity-100 transition-opacity"></div>
                 </a>
                 <a href="#gems" class="px-8 py-4 border-2 border-primary-500/50 rounded-xl font-semibold text-lg hover:bg-primary-500/10 transition-all hover:border-primary-400">
-                    Explore Gems
+                    Подробнее о сервере
                 </a>
             </div>
             <div class="mt-12 flex justify-center gap-8 text-sm text-gray-400">
                 <div class="flex items-center gap-2">
                     <div class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                    <span>Online: <span id="playerCount" class="text-white font-semibold">247</span></span>
+                    <span>Игроков: <span id="players" class="text-white font-semibold">Загрузка...</span></span></span>
                 </div>
+                <script>
+                fetch("https://api.mcsrvstat.us/2/play.hypixel.net")
+                  .then(response => response.json())
+                  .then(data => {
+                      if (data.online) {
+                          document.getElementById("players").textContent =
+                              data.players.online + " / " + data.players.max;
+                      } else {
+                          document.getElementById("players").textContent = "Сервер оффлайн";
+                      }
+                  })
+                  .catch(() => {
+                      document.getElementById("players").textContent = "Ошибка";
+                  });
+                </script>
                 <div class="flex items-center gap-2">
                     <i data-feather="globe" class="w-4 h-4"></i>
-                    <span>Version: 1.20+</span>
+                    <span>Версия: 1.21.8</span>
                 </div>
                 <div class="flex items-center gap-2">
                     <i data-feather="shield" class="w-4 h-4"></i>
-                    <span>Anti-Cheat</span>
+                    <span>Защищенный сервер</span>
                 </div>
             </div>
         </div>
